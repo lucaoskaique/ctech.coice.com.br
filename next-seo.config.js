@@ -1,38 +1,31 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  titleTemplate: "%s | Resgate+",
-  defaultTitle: "Organização Audiovisual da Sociedade Civil | Resgate+",
+  titleTemplate: "%s | DevTech",
+  defaultTitle: "Innovative Software Solutions | DevTech",
   description:
-    "Organização Audiovisual da Sociedade Civil dedicada a projetos audiovisuais e culturais.",
-  canonical: "https://resgatemais.org/",
+    "DevTech is a leading company in developing innovative software solutions for various industries.",
+  canonical: "https://devtech.com/",
   openGraph: {
     type: "website",
-    locale: "pt_BR",
-    url: "https://resgatemais.org",
-    siteName: "Resgate+",
-    title: "Organização Audiovisual da Sociedade Civil",
+    locale: "en_US",
+    url: "https://devtech.com",
+    siteName: "DevTech",
+    title: "Innovative Software Solutions",
     description:
-      "Organização Audiovisual da Sociedade Civil dedicada a projetos audiovisuais e culturais.",
+      "DevTech is a leading company in developing innovative software solutions for various industries.",
     images: [
       {
-        url: "https://resgatemais.org/images/bg-hero.png",
+        url: "https://devtech.com/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Resgate+ | Organização Audiovisual da Sociedade Civil",
+        alt: "DevTech | Innovative Software Solutions",
         type: "image/jpeg"
       }
-      // {
-      //   url: "https://resgatemais.org/android-chrome-192x192.png",
-      //   width: 340,
-      //   height: 80,
-      //   alt: "Resgate+ | Organização Audiovisual da Sociedade Civil",
-      //   type: "image/png"
-      // }
     ]
   },
   twitter: {
-    handle: "@resgate_mais",
-    site: "@resgate_mais",
+    handle: "@devtech",
+    site: "@devtech",
     cardType: "summary_large_image"
   },
   additionalMetaTags: [
@@ -42,7 +35,7 @@ export default {
     },
     {
       name: "theme-color",
-      content: "#ffffff"
+      content: "#000000"
     }
   ],
   additionalLinkTags: [
@@ -61,7 +54,7 @@ export default {
     },
     {
       rel: "privacy-policy",
-      href: "/politica-de-privacidade"
+      href: "/privacy-policy"
     }
   ]
 }

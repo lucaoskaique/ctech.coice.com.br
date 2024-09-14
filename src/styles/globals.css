@@ -4,52 +4,146 @@
 
 @layer base {
   :root {
-    --primary: 0 0% 0%; /* #000000 Texto Principal */
-    --background: 0 0% 85%; /* #D9D9D9 Background Principal */
+    --text-font-family: "Epilogue";
+    --heading-font-family: "Epilogue";
+    --btn-font-family: "Epilogue";
 
-    --secondary: 0 0% 90%; /* #E6E6E6 Texto Secundário */
-    --background-secondary: 0 0% 20%; /* #323232 Background Secundário (oposto) */
+    --theme-bg-color: #ffffff;
+    --theme-color: #d8ff36;
+    --text-color: #1b252e;
+    --heading-color: #000000;
+    --btn-color: #000000;
+    --btn-hover-color: #d8ff36;
+    --intro-color: #ffffff;
+    --intro-subtitle-color: #ffffff;
+    --intro-bread-color: #ffffff;
 
-    --highlight: 358 65% 54%; /* #D63E44 Vermelho (text|bg) */
-    --light: 0 0% 90%;
-    --dark: 0 0% 20%;
-  }
+    --heading-font-size: 70px;
+    --heading-font-weight: 600;
+    --heading-letter-spacing: 0px;
+    --heading-font-transform: unset;
 
-  .dark {
-    --primary: 0 0% 90%; /* #E6E6E6 Texto Principal */
-    --background: 0 0% 20%; /* #323232 Background Principal */
+    --heading2-font-size: 60px;
+    --heading2-font-weight: 600;
+    --heading2-letter-spacing: 0px;
+    --heading2-font-transform: unset;
 
-    --secondary: 0 0% 0%; /* #000000 Texto Secundário */
-    --background-secondary: 0 0% 85%; /* #D9D9D9 Background Secundário (oposto) */
+    --heading3-font-size: 40px;
+    --heading3-font-weight: 600;
+    --heading3-letter-spacing: 0px;
+    --heading3-font-transform: unset;
 
-    --highlight: 358 65% 54%; /* #D63E44 Vermelho (text|bg) */
-    --light: 0 0% 90%;
-    --dark: 0 0% 20%;
+    --heading4-font-size: 30px;
+    --heading4-font-weight: 600;
+    --heading4-letter-spacing: 0px;
+    --heading4-font-transform: unset;
+
+    --heading5-font-size: 20px;
+    --heading5-font-weight: 600;
+    --heading5-letter-spacing: 0px;
+    --heading5-font-transform: unset;
+
+    --heading6-font-size: 18px;
+    --heading6-font-weight: 600;
+    --heading6-letter-spacing: 0px;
+    --heading6-font-transform: unset;
+
+    --text-font-size: 18px;
+    --text-font-weight: 400;
+    --text-line-height: 1.7;
+    --text-letter-spacing: 0px;
+
+    --btn-font-size: 16px;
+    --btn-font-weight: 700;
+    --btn-letter-spacing: 0px;
+    --btn-font-transform: unset;
+    --btn-border-radius: 66px;
+
+    --preloader-bg-color: #000000;
+    --preloader-color: #d8ff36;
   }
 }
 
 @layer base {
   @font-face {
-    font-family: "Alte Haas Grotesk";
+    font-family: "Epilogue";
+    font-style: normal;
     font-weight: 400;
-    src: url(/fonts/AlteHaasGroteskRegular.ttf) format("truetype");
+    src: url(https://fonts.gstatic.com/s/epilogue/v17/O4ZRFGj5hxF0EhjimlIksgg.woff2)
+      format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+      U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
-  @font-face {
-    font-family: "Alte Haas Grotesk";
-    font-weight: 700;
-    src: url(/fonts/AlteHaasGroteskBold.ttf) format("truetype");
+  * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   }
-}
 
-@layer base {
-  body {
-    @apply bg-background font-alteHaas text-base text-primary;
+  ::-webkit-input-placeholder {
+    @apply text-black/50;
+  }
+
+  ::-moz-placeholder {
+    @apply text-black/50;
+  }
+
+  :-moz-placeholder {
+    @apply text-black/50;
+  }
+
+  :-ms-input-placeholder {
+    @apply text-black/50;
   }
 
   html,
   body {
-    font-family: "Alte Haas Grotesk", ui-sans-serif, system-ui, sans-serif !important;
+    @apply m-0 h-auto overflow-visible p-0 font-epilogue text-[18px] font-normal leading-[1.7] text-[#1B252E] antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  a {
+    @apply cursor-pointer text-[#000] no-underline outline-none transition-all duration-[400ms];
+    transition-timing-function: cubic-bezier(0.3, 0, 0.3, 1);
+  }
+
+  a:link,
+  a:active,
+  a:visited,
+  a:hover {
+    @apply text-[#000];
+  }
+
+  a img {
+    @apply border-none;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  input,
+  textarea,
+  button {
+    @apply font-epilogue;
+  }
+
+  label {
+    @apply cursor-pointer;
+  }
+
+  iframe {
+    @apply max-w-full;
+  }
+
+  form p {
+    @apply m-0 mb-[15px];
+  }
+
+  b,
+  strong {
+    @apply font-bold;
   }
 }
 

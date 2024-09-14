@@ -17,70 +17,93 @@ const config: Config = {
           sm: "2rem"
         },
         screens: {
-          sm: "100%", // Full width for small screens (mobile)
-          md: "100%", // Full width for medium screens (tablet)
-          lg: "1024px", // 1024px width for large screens (desktop)
-          xl: "1280px", // 1280px width for extra-large screens (desktop)
-          "2xl": "1536px" // 1536px width for double extra-large screens (desktop)
+          sm: "100%",
+          md: "100%",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px"
         }
       },
+      maxWidth: {
+        container: "1318px",
+        "container-lg": "1338px",
+        "container-xl": "1368px"
+      },
       fontFamily: {
-        alteHaas: [
-          '"Alte Haas Grotesk"',
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif"
-        ]
+        epilogue: ["Epilogue", "sans-serif"]
       },
       padding: {
         container: "4.5rem",
         section: "6rem"
       },
       colors: {
-        primary: "hsl(var(--primary))",
+        primary: "var(--theme-color)",
         secondary: "hsl(var(--secondary))",
-        background: "hsl(var(--background))",
+        background: "var(--theme-bg-color)",
         "background-secondary": "hsl(var(--background-secondary))",
         highlight: "hsl(var(--highlight))",
         lightColor: "hsl(var(--light))",
-        darkColor: "hsl(var(--dark))"
-      },
-      boxShadow: {
-        button: "0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset"
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
-      },
-      keyframes: {
-        drawerAnimationDown: {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(0)" }
-        },
-        drawerAnimationUp: {
-          "0%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(-100%)" }
+        darkColor: "hsl(var(--dark))",
+        text: "var(--text-color)",
+        heading: "var(--heading-color)",
+        btn: "var(--btn-color)",
+        "btn-hover": "var(--btn-hover-color)",
+        intro: "var(--intro-color)",
+        "intro-subtitle": "var(--intro-subtitle-color)",
+        "intro-bread": "var(--intro-bread-color)",
+        preloader: {
+          bg: "var(--preloader-bg-color)",
+          figure: "var(--preloader-color)"
         }
       },
-      animation: {
-        drawerDown: "drawerAnimationDown 0.3s ease-in forwards",
-        drawerUp: "drawerAnimationUp 0.3s ease-out forwards"
-      },
-      /* Sets the base font size using the clamp() function:
-          - Minimum size: 1rem (16px)
-          - Preferred size: 2vw (2% of the viewport width)
-          - Maximum size: 1.2rem (19.2px)
-      */
       fontSize: {
-        base: "clamp(1rem, 2vw, 1.2rem)",
-        h1: "clamp(3rem, 5vw, 4.5rem)",
-        h2: "clamp(1.75rem, 4vw, 2.25rem)",
-        h3: "clamp(1.5rem, 3.5vw, 2rem)",
-        paragraph: "clamp(1.5rem, 2.5vw, 1.5rem)"
+        base: "var(--text-font-size)",
+        h1: "var(--heading-font-size)",
+        h2: "var(--heading2-font-size)",
+        h3: "var(--heading3-font-size)",
+        h4: "var(--heading4-font-size)",
+        h5: "var(--heading5-font-size)",
+        h6: "var(--heading6-font-size)",
+        btn: "var(--btn-font-size)"
+      },
+      fontWeight: {
+        normal: "var(--text-font-weight)",
+        heading: "var(--heading-font-weight)",
+        heading2: "var(--heading2-font-weight)",
+        heading3: "var(--heading3-font-weight)",
+        heading4: "var(--heading4-font-weight)",
+        heading5: "var(--heading5-font-weight)",
+        heading6: "var(--heading6-font-weight)",
+        btn: "var(--btn-font-weight)"
+      },
+      letterSpacing: {
+        heading: "var(--heading-letter-spacing)",
+        heading2: "var(--heading2-letter-spacing)",
+        heading3: "var(--heading3-letter-spacing)",
+        heading4: "var(--heading4-letter-spacing)",
+        heading5: "var(--heading5-letter-spacing)",
+        heading6: "var(--heading6-letter-spacing)",
+        text: "var(--text-letter-spacing)",
+        btn: "var(--btn-letter-spacing)"
+      },
+      lineHeight: {
+        text: "var(--text-line-height)"
+      },
+      borderRadius: {
+        btn: "var(--btn-border-radius)"
+      },
+      textTransform: {
+        heading: "var(--heading-font-transform)",
+        heading2: "var(--heading2-font-transform)",
+        heading3: "var(--heading3-font-transform)",
+        heading4: "var(--heading4-font-transform)",
+        heading5: "var(--heading5-font-transform)",
+        heading6: "var(--heading6-font-transform)",
+        btn: "var(--btn-font-transform)"
       }
     }
   },
   plugins: []
 }
+
 export default config
