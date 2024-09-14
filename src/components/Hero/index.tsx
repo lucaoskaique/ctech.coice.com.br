@@ -1,119 +1,51 @@
-import { motion } from "framer-motion"
-import { useRouter } from "next/router"
+import Image from "next/image"
 import { useState } from "react"
 
-import { cn } from "@/lib/utils"
-
-import Button from "../Button"
-import QrCodeCard from "../QrCodeCard"
-import { ResponsiveLogo } from "../ResponsiveBrand"
-
-export type DonatePageProps = {
-  title: string
-  paragraph1?: string
-  paragraph2?: string
-  donateCall: string
-  qrCodeUrl: string
-}
-
-type HomeProps = {
-  logo: string
-  title: string
-}
-
-export type HeroProps = {
-  bgUrl: string
-  home: HomeProps
-  donatePage: DonatePageProps
-}
-
-export default function Hero({ bgUrl, home, donatePage }: HeroProps) {
-  const router = useRouter()
-  const donatePageRoute = router.asPath === "/donate"
-  const [buttonText, setButtonText] = useState("Copiar código PIX")
-  const handleCopyPix = () => {
-    navigator.clipboard.writeText(
-      "00020126440014BR.GOV.BCB.PIX0122resgatemais@sitawi.net5204000053039865802BR5906SITAWI6009SAO PAULO6226052252oMdqOKiSWZ4QWt2z8Fp26304FEE2"
-    )
-    setButtonText("PIX copiado!")
-    setTimeout(() => {
-      setButtonText("Copiar Código PIX")
-    }, 5000)
-  }
+export default function Hero() {
+  const [isPlaying, setIsPlaying] = useState(false)
   return (
-    <section
-      className={cn(
-        donatePageRoute ? "min-h-screen" : "h-screen",
-        "relative w-full overflow-hidden"
-      )}
-      style={{
-        backgroundImage: `url(${bgUrl})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat"
-      }}>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          zIndex: 1
-        }}></div>
-
-      <div className="container relative z-10 mt-12 h-full py-container max-[600px]:mt-14">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className={cn(
-            "grid h-full",
-            donatePageRoute
-              ? "grid-rows-[min-content_1fr] content-around items-center gap-10 px-10 pt-4 max-xl:justify-items-center md:pt-8 xl:grid-cols-[1fr_min-content] xl:grid-rows-1"
-              : "grid-rows-1 items-center"
-          )}>
-          {donatePageRoute && (
-            <>
-              <div className="text-start lg:w-min lg:px-0">
-                <h1 className="text-h2 font-bold text-highlight max-lg:text-center lg:text-nowrap">
-                  {donatePage?.title}
-                </h1>
-                <p className="mt-10 w-full text-justify text-paragraph font-bold text-primary">
-                  {donatePage?.paragraph1}
-                  <span className="mt-4 block font-medium">
-                    {donatePage?.paragraph2}
-                  </span>
-                </p>
-              </div>
-
-              <aside className="min-w-[200px] xl:justify-self-end">
-                <p className="mb-4 text-center text-base font-bold text-white">
-                  {donatePage?.donateCall}
-                </p>
-                {donatePage?.qrCodeUrl && (
-                  <QrCodeCard url={donatePage.qrCodeUrl} label="" />
-                )}
-                <Button
-                  as={"button"}
-                  onClick={handleCopyPix}
-                  className="mt-4 flex w-full flex-col items-center">
-                  {buttonText}
-                </Button>
-              </aside>
-            </>
-          )}
-
-          {!donatePageRoute && (
-            <div className="max-w-[480px] pl-4 text-start">
-              {home?.logo && <ResponsiveLogo className="" />}
-              <h1 className="pt-8 text-h2 font-bold leading-tight text-white md:text-3xl lg:text-4xl">
-                {home?.title}
-              </h1>
-            </div>
-          )}
-        </motion.div>
+    <section className="relative h-screen bg-gray-600">
+      <div className="absolute inset-0 h-full w-full">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          id="heroVideo"
+          className="h-full w-full object-cover object-center">
+          <source src="/images/stvideo.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 z-10 bg-black opacity-35"></div>
+      </div>
+      <div className="container relative z-20 flex h-full flex-col justify-center pt-24">
+        <h1 className="m-0 text-7xl font-medium text-white md:text-8xl lg:text-9xl">
+          <span className="block">
+            We Make <br />
+            Everything
+            <span className="relative -mt-2 ml-4 inline-block h-[1em] w-8">
+              <Image src="/images/title_icon.svg" alt="Separator" fill />
+            </span>
+          </span>
+        </h1>
+        <div className="mb-10 ml-0 mt-10 max-w-lg text-2xl text-white md:ml-[710px] md:text-3xl">
+          <div>
+            Creative studio at the <br /> intersection of art, design <br /> and
+            technology.
+          </div>
+        </div>
+        <button
+          className={`absolute bottom-16 right-3 z-30 h-16 w-16 ${isPlaying ? "active" : ""}`}
+          onClick={() => setIsPlaying(!isPlaying)}>
+          <span className="absolute inset-0 rounded-full border border-white">
+            <span className="absolute -inset-2.5 animate-ping rounded-full border border-white opacity-30"></span>
+          </span>
+          <span className="absolute left-1/2 top-1/2 -ml-2 -mt-2 h-4 w-4">
+            <span className="absolute bottom-0 left-0 h-4 w-0.5 bg-white"></span>
+            <span className="absolute bottom-0 left-1 h-3.5 w-0.5 bg-white"></span>
+            <span className="absolute bottom-0 left-2 h-2.5 w-0.5 bg-white"></span>
+            <span className="absolute bottom-0 left-3 h-3 w-0.5 bg-white"></span>
+          </span>
+        </button>
       </div>
     </section>
   )

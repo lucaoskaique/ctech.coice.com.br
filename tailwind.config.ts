@@ -34,7 +34,11 @@ const config: Config = {
       },
       padding: {
         container: "4.5rem",
-        section: "6rem"
+        section: "6rem",
+        "140": "140px"
+      },
+      transitionDuration: {
+        "400": "400ms"
       },
       colors: {
         primary: "var(--theme-color)",
@@ -54,7 +58,11 @@ const config: Config = {
         preloader: {
           bg: "var(--preloader-bg-color)",
           figure: "var(--preloader-color)"
-        }
+        },
+        "hover-bg": "var(--btn-hover-color)"
+      },
+      transitionTimingFunction: {
+        "hover-timing": "cubic-bezier(0.3, 0, 0.3, 1)"
       },
       fontSize: {
         base: "var(--text-font-size)",
@@ -100,10 +108,131 @@ const config: Config = {
         heading5: "var(--heading5-font-transform)",
         heading6: "var(--heading6-font-transform)",
         btn: "var(--btn-font-transform)"
+      },
+      keyframes: {
+        bubbleOne: {
+          "0%": {
+            bottom: "-20%",
+            right: "-10%",
+            opacity: "0",
+            transform: "scale(0.3)"
+          },
+          "50%": {
+            bottom: "0",
+            right: "0",
+            opacity: "1",
+            transform: "scale(1.05)"
+          },
+          "100%": {
+            bottom: "0",
+            right: "0",
+            opacity: "1",
+            transform: "scale(1)"
+          }
+        },
+        bubbleTwo: {
+          "0%": {
+            bottom: "0%",
+            left: "-40%",
+            opacity: "0",
+            transform: "scale(0.25)"
+          },
+          "50%": {
+            bottom: "30%",
+            left: "0%",
+            opacity: "1",
+            transform: "scale(1)"
+          },
+          "100%": {
+            bottom: "30%",
+            left: "0%",
+            opacity: "1",
+            transform: "scale(1)"
+          }
+        },
+        bubbleThree: {
+          "0%": {
+            bottom: "30%",
+            left: "30%",
+            opacity: "0",
+            transform: "scale(0.35)"
+          },
+          "50%": {
+            bottom: "63%",
+            left: "57%",
+            opacity: "1",
+            transform: "scale(1)"
+          },
+          "100%": {
+            bottom: "63%",
+            left: "57%",
+            opacity: "1",
+            transform: "scale(1)"
+          }
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" }
+        },
+        "scale-y-in": {
+          "0%": { transform: "scaleY(0)" },
+          "100%": { transform: "scaleY(1)" }
+        },
+        "label-in": {
+          "0%": { opacity: "0", transform: "translateY(8px) scale(0.8)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" }
+        }
+      },
+      animation: {
+        "scale-in": "scale-in 0.4s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        "scale-y-in": "scale-y-in 0.4s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        "label-in": "label-in 0.4s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        wave: "play-btn-wave 2s infinite ease-in-out",
+        bubbleOne: "bubbleOne 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        bubbleTwo: "bubbleTwo 1.5s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        bubbleThree: "bubbleThree 2s cubic-bezier(0.3, 0, 0.3, 1) forwards"
+      },
+      opacity: {
+        "35": "0.35",
+        "31": "0.31",
+        "30": "0.30"
+      },
+      inset: {
+        "2.5": "0.625rem"
       }
     }
   },
-  plugins: []
+  variants: {
+    extend: {
+      scale: ["group-hover", "group-active"],
+      animation: ["group-hover", "group-active"]
+    }
+  },
+  plugins: [
+    //   function ({ addUtilities }: { addUtilities: any }) {
+    //   const newUtilities = {
+    //     ".hover-before": {
+    //       "&::before": {
+    //         content: '""',
+    //         position: "absolute",
+    //         left: "-1px",
+    //         top: "-1px",
+    //         width: "calc(100% + 2px)",
+    //         height: "calc(100% + 2px)",
+    //         borderRadius: "100%",
+    //         transition: "all 0.4s cubic-bezier(0.3, 0, 0.3, 1)",
+    //         transform: "scale(0)",
+    //         background: "#D8FF36",
+    //         pointerEvents: "none"
+    //       },
+    //       "&:hover::before": {
+    //         transform: "scale(1)"
+    //       }
+    //     },
+    //   }
+    //   addUtilities(newUtilities, ["responsive", "hover"])
+    // }
+  ]
 }
 
 export default config

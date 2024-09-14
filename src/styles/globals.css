@@ -62,9 +62,7 @@
     --preloader-bg-color: #000000;
     --preloader-color: #d8ff36;
   }
-}
 
-@layer base {
   @font-face {
     font-family: "Epilogue";
     font-style: normal;
@@ -145,10 +143,160 @@
   strong {
     @apply font-bold;
   }
+
+  /* Hero-specific animations */
+  @keyframes play-btn-wave {
+    0% {
+      left: -10px;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      opacity: 0.31;
+    }
+    50% {
+      left: -20px;
+      top: -20px;
+      right: -20px;
+      bottom: -20px;
+      opacity: 0;
+    }
+    51% {
+      left: -10px;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      opacity: 0;
+    }
+    100% {
+      left: -10px;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      opacity: 0.31;
+    }
+  }
+
+  @keyframes play-btn-lines-1 {
+    0% {
+      height: 17px;
+    }
+    100% {
+      height: 2px;
+    }
+  }
+
+  @keyframes play-btn-lines-2 {
+    0% {
+      height: 14px;
+    }
+    100% {
+      height: 2px;
+    }
+  }
+
+  @keyframes play-btn-lines-3 {
+    0% {
+      height: 10px;
+    }
+    100% {
+      height: 2px;
+    }
+  }
+
+  @keyframes play-btn-lines-4 {
+    0% {
+      height: 12px;
+    }
+    100% {
+      height: 2px;
+    }
+  }
+
+  .play-btn.active .play-lines span:nth-child(1) {
+    animation: play-btn-lines-1 1s infinite ease-in-out;
+  }
+
+  .play-btn.active .play-lines span:nth-child(2) {
+    animation: play-btn-lines-2 0.8s infinite ease-in-out;
+  }
+
+  .play-btn.active .play-lines span:nth-child(3) {
+    animation: play-btn-lines-3 0.4s infinite ease-in-out;
+  }
+
+  .play-btn.active .play-lines span:nth-child(4) {
+    animation: play-btn-lines-4 0.6s infinite ease-in-out;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  @layer components {
+    .hover-1::before,
+    .hover-2::before,
+    .hover-3::before {
+      @apply pointer-events-none absolute -left-px -top-px h-[calc(100%+2px)] w-[calc(100%+2px)] scale-0 rounded-full bg-[#D8FF36] transition-all duration-400 ease-[cubic-bezier(0.3,0,0.3,1)] content-[''];
+    }
+
+    .hover-2::before {
+      @apply left-[3px] top-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)];
+    }
+
+    .hover-3::before {
+      @apply left-1/2 top-1/2 -m-[400px] h-[800px] w-[800px];
+    }
+
+    .hover-1:hover::before,
+    .hover-2:hover::before,
+    .hover-3:hover::before {
+      @apply scale-100;
+    }
+
+    .hover-black::before {
+      @apply bg-black !important;
+    }
+
+    .hover-black-30::before {
+      @apply bg-black/30 !important;
+    }
+
+    .hover-btn > .arrow::after,
+    .hover-btn > i::after {
+      @apply absolute -left-px -top-px h-[calc(100%+2px)] w-[calc(100%+2px)] origin-center scale-0 rounded-full bg-[#D8FF36] transition-all duration-400 ease-[cubic-bezier(0.3,0,0.3,1)] content-[''];
+    }
+
+    .hover-btn::before {
+      @apply absolute bottom-px left-px right-px top-px rounded-[66px] bg-black content-[''];
+    }
+
+    .hover-btn::after {
+      @apply absolute inset-0 z-[1] origin-bottom scale-y-0 bg-[#D8FF36] transition-transform duration-400 ease-[cubic-bezier(0.3,0,0.3,1)] content-[''];
+    }
+
+    .hover-btn:hover::after {
+      @apply origin-top scale-y-100;
+    }
+
+    .hover-btn:hover > .arrow::after,
+    .hover-btn:hover > i::after {
+      @apply scale-100;
+    }
+
+    .hover-label {
+      @apply relative;
+    }
+
+    .hover-label .label {
+      @apply absolute inset-0 z-[2] flex translate-y-2 scale-90 items-center justify-center font-bold opacity-0 transition-all duration-400 ease-[cubic-bezier(0.3,0,0.3,1)];
+    }
+
+    .hover-label:hover .label {
+      @apply translate-y-0 scale-100 opacity-100;
+    }
   }
 }
