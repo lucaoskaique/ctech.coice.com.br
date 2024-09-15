@@ -181,6 +181,14 @@ const config: Config = {
         "label-in": {
           "0%": { opacity: "0", transform: "translateY(8px) scale(0.8)" },
           "100%": { opacity: "1", transform: "translateY(0) scale(1)" }
+        },
+        rotateText: {
+          "0%": {
+            transform: "rotate(360deg)"
+          },
+          "100%": {
+            transform: "rotate(0deg)"
+          }
         }
       },
       animation: {
@@ -190,7 +198,8 @@ const config: Config = {
         wave: "play-btn-wave 2s infinite ease-in-out",
         bubbleOne: "bubbleOne 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards",
         bubbleTwo: "bubbleTwo 1.5s cubic-bezier(0.3, 0, 0.3, 1) forwards",
-        bubbleThree: "bubbleThree 2s cubic-bezier(0.3, 0, 0.3, 1) forwards"
+        bubbleThree: "bubbleThree 2s cubic-bezier(0.3, 0, 0.3, 1) forwards",
+        "spin-slow": "rotateText 10s linear infinite"
       },
       opacity: {
         "35": "0.35",

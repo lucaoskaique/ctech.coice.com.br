@@ -298,5 +298,28 @@
     .hover-label:hover .label {
       @apply translate-y-0 scale-100 opacity-100;
     }
+
+    .number::before {
+      content: "";
+      position: absolute;
+      left: 35px;
+      top: 35px;
+      right: 35px;
+      bottom: 35px;
+      border: 1px solid #000;
+      border-radius: 100%;
+    }
+
+    .circle-text-label {
+      animation: onovoRotateText 10s linear infinite;
+    }
+
+    .text-shadow {
+      text-shadow:
+        3px 3px 0 #000,
+        -3px 3px 0 #000,
+        3px -3px 0 #000,
+        -3px -3px 0 #000;
+    }
   }
 }
