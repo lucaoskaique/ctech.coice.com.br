@@ -83,8 +83,8 @@ const SectionAbout: React.FC = () => {
 const CircularNumber: React.FC = () => {
   const circleText = "Years of Digital Solutions Experience"
   return (
-    <div className="relative flex h-64 w-64 flex-col items-center justify-center rounded-full border border-black text-center">
-      <div className="number text-shadow relative top-2 text-8xl font-bold leading-none">
+    <div className="number relative flex h-64 w-64 flex-col items-center justify-center rounded-full border border-black text-center">
+      <div className="text-shadow relative top-2 text-8xl font-bold leading-none">
         14
       </div>
       <div className="circle-text-label absolute left-[5%] top-[5%] h-[90%] w-[90%] text-sm font-bold uppercase leading-none">

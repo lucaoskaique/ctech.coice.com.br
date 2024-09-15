@@ -311,7 +311,7 @@
     }
 
     .circle-text-label {
-      animation: onovoRotateText 10s linear infinite;
+      animation: rotateText 10s linear infinite;
     }
 
     .text-shadow {
@@ -320,6 +320,15 @@
         -3px 3px 0 #000,
         3px -3px 0 #000,
         -3px -3px 0 #000;
+    }
+
+    @keyframes rotateText {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
     }
   }
 }
